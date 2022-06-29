@@ -1,0 +1,29 @@
+package com.mapsahr;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please input String");
+        String sent = scanner.next();
+        if (palindrome(sent)){
+            System.out.println("Your string is Palindrome");
+        }else {
+            System.out.println("Your string is NOT Palindrome");
+        }
+    }
+    public static String reverse(String str) {
+        char[] charStr;
+        charStr = str.toCharArray();
+        char[] charRev = new char[str.length()];
+        for (int i = 0; i < str.length(); i++) {
+            charRev[i]=charStr[str.length()-(1+i)];
+        }
+        return String.valueOf(charRev);
+    }
+    public static boolean palindrome(String str){
+        if(str==null|| str.equals("") ) return true;
+        String rev=reverse(str);
+        if(str.equals(rev)) return true;
+        return false;
+    }
+}
